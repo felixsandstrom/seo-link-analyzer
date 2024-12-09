@@ -1,101 +1,96 @@
-<<<<<<< HEAD
-# Global Energy Data Scraper
 
-## Overview
+# SEO Link Analyzer
 
-This project is a Python-based web scraper that uses Selenium to extract energy-related data from the [IEA website](https://www.iea.org/). It collects information such as energy mix, electricity mix, global emissions, and yearly statistics for countries grouped by continents. The data is saved in a CSV file for further analysis.
+SEO Link Analyzer is a Python-based tool designed to analyze and audit SEO-related aspects of web pages. It crawls internal links, checks metadata, evaluates broken links, and generates detailed reports in Google Sheets.
 
 ## Features
+- **Crawl Internal Links**: Extracts and analyzes internal links from a given URL.
+- **Metadata Analysis**: Collects metadata like titles, descriptions, and H1 tags.
+- **Broken Link Checker**: Identifies and reports broken or non-responsive links.
+- **Sitemap Integration**: Checks for sitemap files and validates URLs against them.
+- **Google Sheets Integration**: Exports results directly to a Google Spreadsheet for easy sharing and review.
 
-- Extracts hidden chart data using JavaScript.
-- Collects data at both country and continent levels.
-- Saves the results in a structured CSV file.
+## Prerequisites
+- Python 3.7 or higher.
+- A Google Service Account JSON file for Sheets API authentication.
+- Required Python libraries (install using `requirements.txt`).
 
-## Requirements
+## Installation
 
-- Python 3.10.5
-- Selenium
-- Pandas
-- Google Chrome
-- Chromedriver (compatible with the installed version of Chrome)
-
-## Setup Instructions
-
-1. **Create and Activate a Virtual Environment**
-
-   ```bash
-   # On Windows
-   python -m venv env
-   .\env\Scripts\activate
-
-   # On macOS/Linux
-   python -m venv env
-   source env/bin/activate
-   ```
-
-2. **Install Dependencies**
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Ensure Chromedriver is Installed**
-
-   1. Check your Chrome version by navigating to:
-
-      ```plaintext
-      chrome://settings/help
-      ```
-
-   2. Download the corresponding version of Chromedriver from the [Chromedriver Downloads](https://chromedriver.chromium.org/downloads).
-   3. Add Chromedriver to your system's PATH or specify its location in the script.
-
-4. **Run the Script**
-
-   ```bash
-   python global_energy_scraper.py
-   ```
-
-The script will save the extracted data to a CSV file named `global_energy_data.csv` in the same directory as the script.
-
-## Output
-
-The output CSV file will contain the following columns:
-
-- **Country**: The name of the country.
-- **Year**: The year of the data.
-- **Global Emissions**: Percentage of global emissions.
-- **Energy Supplied Renewable/Non-renewable**: Energy mix data.
-- **Electricity Renewable/Non-renewable**: Electricity mix data.
-
-### Example Output
-
-| Country         | Year | Global Emissions | Energy Supplied Renewable | Electricity Renewable |
-|-----------------|------|------------------|---------------------------|------------------------|
-| United States   | 2022 | 15.5%            | 23%                       | 20%                   |
-| Germany         | 2022 | 10.2%            | 30%                       | 40%                   |
-
-## Directory Structure
-
-```plaintext
-project/
-├── global_energy_scraper.py   # Main script for scraping
-├── requirements.txt           # Python dependencies
-├── env/                       # Virtual environment (not included in GitHub)
-├── global_energy_data.csv     # Output file (generated after running script)
-├── LICENSE                    # License for the project
-└── README.md                  # Documentation
+### 1. Clone the Repository
+```bash
+git clone https://github.com/felixsandstrom/seo-link-analyzer.git
+cd seo-link-analyzer
 ```
 
-## Notes
+### 2. Create a Virtual Environment
+```bash
+# For Windows
+python -m venv venv
+venv\Scripts\activate
 
-- Ensure a stable internet connection while running the script, as it dynamically fetches data from the website.
-- Use the same Chrome version as the Chromedriver version to avoid compatibility issues.
+# For macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Update the Environment Variables
+A `.env` file is already included in the project with placeholder values. You need to update this file with your own credentials.
+
+#### Steps:
+1. **Locate the `.env` File**:
+   In the root directory of the project, you'll find a file named `.env`.
+
+2. **Update the Variables**:
+   Open the `.env` file and replace the placeholder values with your own:
+
+   ```plaintext
+   SERVICE_ACCOUNT_FILE=/path/to/your/service-account.json
+   DEFAULT_EMAIL=your-email@example.com
+
+Replace the placeholders with the path to your Google Service Account JSON file and your email address.
+
+### 5. Run the Application
+```bash
+python seo_link_analyzer.py
+```
+
+## Usage
+1. Enter the URL of the page you want to scan. You can start the URL with `www`, or use `http://` or `https://`.
+2. Enter the email address to share the Google Spreadsheet containing the results. If no email is provided, the default email from `.env` will be used.
+3. The tool will:
+   - Extract internal links.
+   - Analyze metadata for each link.
+   - Check for broken links.
+   - Generate a Google Spreadsheet with the results.
+
+## Output
+- A Google Spreadsheet with two sheets:
+  1. **SEO Analysis**: Contains metadata and sitemap information for all crawled links.
+  2. **Broken Links**: Lists all broken or non-responsive links.
+
+## Example Commands
+### Default URL and Default Email:
+```bash
+python seo_link_analyzer.py
+```
+
+### Custom URL and Email:
+```bash
+Enter the URL of the page to scan: www.example.com
+Enter email to share the spreadsheet with: your-email@example.com
+```
 
 ## License
+This project is licensed under the MIT License.
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-=======
-# web-scraping-countries-energy-data
- A Python web scraper using Selenium to extract global energy data from the IEA website. Collects data such as energy mix, electricity mix, CO2 emissions, and yearly statistics for countries. Saves results in a CSV file for analysis. Ideal for researchers and data enthusiasts interested in energy trends.
->>>>>>> dc00b7e5e30115e2eff43c9cccaeb51dfc7bd48b
+## Author
+**Felix Sandström**  
+Specialist in Web Development and Data Analysis.
+
+For any inquiries, feel free to contact me!
